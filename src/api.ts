@@ -23,8 +23,10 @@ function defaultAPIBaseURL(): string {
 export function createAPI(baseURL: string) {
   const apiURL = (path: string) => `${baseURL}/${path}`;
   return {
-    async list() {
-      const response = await fetch(apiURL("api/runs"), { method: "get" });
+    async list(scope: string) {
+      const response = await fetch(apiURL(`api/runs/${scope}`), {
+        method: "get",
+      });
       const data = await response.json();
 
       if (response.status > 399) {
@@ -35,8 +37,8 @@ export function createAPI(baseURL: string) {
 
       return data.map(deserializeRun);
     },
-    async create(runType: RunType) {
-      const response = await fetch(apiURL("api/runs"), {
+    async create(scope: string, runType: RunType) {
+      const response = await fetch(apiURL(`api/runs/${scope}`), {
         method: "post",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ target: runType }),
@@ -52,10 +54,10 @@ export function createAPI(baseURL: string) {
 
       return deserializeRun(data);
     },
-    async createBatch(runTypes: RunType[]) {
-      return await Promise.all([
-        runTypes.map((runType) => this.create(runType)),
-      ]);
+    async createBatch(scope: string, runTypes: RunType[]) {
+      return await Promise.all(
+        runTypes.map((runType) => this.create(scope, runType))
+      );
     },
   };
 }

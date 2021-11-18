@@ -62,6 +62,23 @@ const RUN_TYPE_LABELS: Record<RunType, string> = {
   [RunType.Baal]: "Baal",
 };
 
+const RUN_TYPES_LIST: RunType[] = [
+  RunType.AncientTunnels,
+  RunType.Andariel,
+  RunType.ArcaneSanctuary,
+  RunType.Baal,
+  RunType.Chaos,
+  RunType.Countess,
+  RunType.Cows,
+  RunType.Eldritch,
+  RunType.Mephisto,
+  RunType.Pindle,
+  RunType.Pit,
+  RunType.Shenk,
+  RunType.Travincal,
+  RunType.Worldstone,
+];
+
 export function runTypeAct(runType: RunType): Act {
   return (
     Object.entries(ACT_RUNS).find(([, actRuns]) =>
@@ -95,6 +112,10 @@ export function runTypesList(): RunType[] {
     RunType.Travincal,
     RunType.Worldstone,
   ];
+}
+
+export function isRunType(maybeRunType: string): maybeRunType is RunType {
+  return (RUN_TYPES_LIST as string[]).includes(maybeRunType);
 }
 
 export function actLabel(act: Act): string {
