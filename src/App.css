@@ -1,0 +1,171 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Open+Sans:wght@400;600&display=swap");
+
+:root {
+  --clr-bg-main: #202124;
+  --clr-btn: #668c4a;
+  --clr-btn-active: #41592f;
+  --clr-text-primary: #c2c6cc;
+  --clr-text-highlight: #ffffff;
+  --clr-text-difference: #8bbf65;
+  --copy-line-height: 1.5;
+  --header-font-family: "Montserrat", sans-serif;
+  --copy-font-family: "Open Sans", sans-serif;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+body {
+  background: var(--clr-bg-main);
+  color: var(--clr-text-primary);
+  font-family: var(--copy-font-family);
+  line-height: var(--copy-line-height);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--header-font-family);
+  font-weight: 600;
+  color: var(--clr-text-highlight);
+}
+
+h1 {
+  font-size: 3rem;
+  line-height: 1.33;
+}
+
+h2 {
+  font-size: 2rem;
+  line-height: 1.5;
+}
+
+main {
+  padding: 2rem 0;
+}
+
+.application {
+  max-width: 55rem;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+}
+
+.t-center {
+  text-align: center;
+}
+
+.run-counter h1 {
+  grid-column: 1 / 3;
+  padding-top: 2rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  font-weight: 400;
+  font-family: var(--copy-font-family);
+  color: var(--clr-text-primary);
+}
+
+.run-counters {
+  display: grid;
+  margin: 1rem 0;
+  margin-bottom: 2rem;
+
+  gap: 0;
+
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 1fr);
+
+  align-items: center;
+  justify-items: left;
+}
+
+.run-counter {
+  display: contents;
+}
+
+.run-counter button {
+  justify-self: right;
+  outline: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  color: var(--clr-text-highlight);
+  background: var(--clr-btn);
+  border-radius: 8px;
+  cursor: pointer;
+
+  transition: background-color 0.2s;
+}
+
+.run-counter p {
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.5;
+  font-family: var(--header-font-family);
+  color: var(--clr-text-highlight);
+}
+
+.difference {
+  color: var(--clr-text-difference);
+}
+
+.run-counter button:hover {
+  background: var(--clr-btn-active);
+}
+
+.act-label {
+  margin-bottom: -1rem;
+}
+
+@media screen and (min-width: 800px) {
+  .application {
+    padding: 1rem 4rem;
+  }
+
+  .run-counter h1 {
+    padding-top: 0;
+    font-size: 1.5rem;
+    grid-column: 1 / 2;
+  }
+
+  .run-counter p {
+    font-size: 1.5rem;
+    justify-self: center;
+  }
+
+  .run-counter button {
+    font-size: 2rem;
+    padding: 0.75rem 1.5rem;
+  }
+
+  .run-counters {
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem 0;
+  }
+
+  .act-label {
+    margin: 1.5rem 0;
+  }
+}
