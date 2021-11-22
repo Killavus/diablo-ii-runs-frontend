@@ -358,13 +358,25 @@ const RunClock: React.FC = () => {
   );
 };
 
-const RunsPage: React.FC = () => (
-  <main className="runs">
-    <RunClock />
-    <Filters />
-    <RunCounters />
-  </main>
-);
+const RunsPage: React.FC = () => {
+  const { scope } = useParams();
+
+  useEffect(() => {
+    document.title = `${scope} – Diablo II Runs`;
+
+    return () => {
+      document.title = "Diablo II Runs";
+    };
+  }, []);
+
+  return (
+    <main className="runs">
+      <RunClock />
+      <Filters />
+      <RunCounters />
+    </main>
+  );
+};
 
 const EnterScopePage: React.FC = () => {
   const navigate = useNavigate();
