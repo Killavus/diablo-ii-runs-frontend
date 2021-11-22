@@ -17,7 +17,7 @@ function deserializeRun(record: Record<string, any>): Run {
 }
 
 function defaultAPIBaseURL(): string {
-  return import.meta.env.VITE_API_URL;
+  return String(import.meta.env.VITE_API_URL);
 }
 
 export function createAPI(baseURL: string) {

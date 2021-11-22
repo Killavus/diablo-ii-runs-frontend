@@ -1,7 +1,8 @@
 /// <reference types="vite/client" />
 
-interface ImportMetaEnv extends Readonly<Record<string, string>> {
-  readonly VITE_API_URL: string;
+interface ImportMetaEnv
+  extends Readonly<Record<string, string | boolean | undefined>> {
+  readonly VITE_API_URL: string | boolean | undefined;
   // more env variables...
 }
 
