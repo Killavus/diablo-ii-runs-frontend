@@ -31,5 +31,5 @@ jobs:
       - name: Add server to known hosts
         run: mkdir -p ~/.ssh; ssh-keyscan -p ${{ secrets.MACHINE_SSH_PORT }} ${{ secrets.MACHINE_HOST }} >> ~/.ssh/known_hosts
       - name: Copy to server
-        run: scp -P ${{ secrets.MACHINE_SSH_PORT }} -r ${{ github.workspace }}/dist runs@${{ secrets.MACHINE_HOST }}:~/web
+        run: scp -P ${{ secrets.MACHINE_SSH_PORT }} -r ${{ github.workspace }}/dist/* runs@${{ secrets.MACHINE_HOST }}:~/web
 
